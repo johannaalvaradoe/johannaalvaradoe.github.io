@@ -1,296 +1,46 @@
 <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Sitio académico personal de Johanna Magaly Alvarado Espejo: economía ambiental, desarrollo económico, investigación, docencia universitaria y gestión curricular." />
-  <meta name="theme-color" content="#143c36" />
-  <title>Johanna Alvarado | Economista, docente e investigadora</title>
-  <style>
-    :root{
-      --bg:#f5f1e8;
-      --surface:#fffdf8;
-      --surface-2:#ece8dc;
-      --ink:#17211f;
-      --muted:#5d6966;
-      --green:#143c36;
-      --green-2:#24584e;
-      --sage:#9bad91;
-      --gold:#b7863d;
-      --line:rgba(20,60,54,.15);
-      --shadow:0 18px 50px rgba(32,48,44,.10);
-      --radius:28px;
-      --max:1180px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
-    body.dark{--bg:#0f1917;--surface:#15221f;--surface-2:#1b2c28;--ink:#eef5f1;--muted:#b2c1bc;--green:#c3d9cf;--green-2:#9ec1b3;--sage:#8cac9d;--gold:#d8ad66;--line:rgba(255,255,255,.10);--shadow:0 18px 50px rgba(0,0,0,.28)}
-    a{color:inherit}
-    img,svg{display:block;max-width:100%}
-    .wrap{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
-    .nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:800;letter-spacing:-.02em}
-    .mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:var(--bg);font-family:Georgia,serif;font-weight:700}
-    .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-    .nav-links a{text-decoration:none;font-size:.94rem;color:var(--muted)}
-    .nav-links a:hover{color:var(--ink)}
-    .theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;width:42px;height:42px;cursor:pointer}
-    .hero{padding:88px 0 64px;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:52px;align-items:center}
-    .kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--green-2);background:var(--surface);font-size:.86rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-    h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.08;letter-spacing:-.035em;margin:0}
-    h1{font-size:clamp(3.2rem,8vw,7.2rem);max-width:950px;margin-top:18px}
-    h1 em{font-style:normal;color:var(--green-2)}
-    .lede{font-size:clamp(1.08rem,2vw,1.35rem);color:var(--muted);max-width:760px;margin:28px 0 0}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 18px;border-radius:999px;text-decoration:none;font-weight:750;border:1px solid var(--line);transition:.2s ease}
-    .btn.primary{background:var(--green);color:var(--bg);border-color:var(--green)}
-    .btn:hover{transform:translateY(-2px)}
-    .hero-art{min-height:540px;position:relative;display:grid;place-items:center}
-    .orb{width:min(92%,470px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 32% 26%,#dfe8d7 0 12%,#9bad91 13% 34%,#3f7064 35% 63%,#143c36 64% 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .orb:before,.orb:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.45);border-radius:50%}
-    .orb:before{inset:14%}
-    .orb:after{inset:30%}
-    .contour{position:absolute;inset:0;background:repeating-radial-gradient(ellipse at 70% 30%,transparent 0 28px,rgba(255,255,255,.12) 29px 31px,transparent 32px 58px);mix-blend-mode:screen}
-    .stat{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow);font-size:.9rem;max-width:210px}
-    .stat b{display:block;font-size:1.25rem;color:var(--green-2);font-family:Georgia,serif}
-    .s1{top:8%;left:0}.s2{bottom:8%;right:0}.s3{bottom:20%;left:3%}
-    section{padding:78px 0;border-top:1px solid var(--line)}
-    .section-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:end;margin-bottom:38px}
-    .section-head h2{font-size:clamp(2.4rem,5vw,4.5rem)}
-    .section-head p{margin:0;color:var(--muted);font-size:1.05rem}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
-    .card .eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;color:var(--gold);margin-bottom:10px}
-    .card h3{font-size:1.65rem;margin-bottom:12px}
-    .card p{color:var(--muted);margin:0}
-    .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-    .pill{font-size:.82rem;border:1px solid var(--line);padding:7px 10px;border-radius:999px;background:var(--surface-2)}
-    .research{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .research .card{min-height:250px;display:flex;flex-direction:column;justify-content:space-between}
-    .num{font-family:Georgia,serif;font-size:3rem;color:var(--sage);line-height:1}
-    .timeline{display:grid;gap:14px}
-    .timeline-item{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
-    .timeline-item:last-child{border-bottom:none}
-    .when{color:var(--gold);font-weight:800}
-    .timeline-item h3{font-size:1.35rem;margin-bottom:6px}
-    .timeline-item p{margin:0;color:var(--muted)}
-    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-    .filter{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700}
-    .filter.active{background:var(--green);color:var(--bg);border-color:var(--green)}
-    .pubs{display:grid;gap:12px}
-    .pub{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
-    .pub h3{font-size:1.16rem;line-height:1.3;font-family:inherit;letter-spacing:0}
-    .pub p{margin:6px 0 0;color:var(--muted);font-size:.94rem}
-    .pub a{white-space:nowrap;text-decoration:none;font-weight:800;color:var(--green-2)}
-    .quote{font-family:Georgia,serif;font-size:clamp(2rem,4vw,4rem);line-height:1.18;max-width:950px}
-    .quote span{color:var(--green-2)}
-    .contact{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
-    .contact-card{background:var(--green);color:var(--bg);border-radius:36px;padding:38px;min-height:330px;display:flex;flex-direction:column;justify-content:space-between}
-    .contact-card h2{font-size:clamp(2.8rem,5vw,5rem)}
-    .contact-card a{font-weight:800;text-decoration:none}
-    .notes{padding:30px;background:var(--surface);border-radius:30px;border:1px solid var(--line)}
-    .notes h3{font-size:1.5rem;margin-bottom:10px}
-    .notes p{color:var(--muted)}
-    footer{padding:30px 0 45px;color:var(--muted);font-size:.9rem}
-    .small{font-size:.86rem;color:var(--muted)}
-    @media (max-width:900px){
-      .hero-grid,.section-head,.contact{grid-template-columns:1fr}
-      .hero-art{min-height:420px}
-      .grid-3{grid-template-columns:1fr}
-      .research{grid-template-columns:1fr}
-      .nav-links a{display:none}
-    }
-    @media (max-width:620px){
-      .wrap{width:min(var(--max),calc(100% - 24px))}
-      .hero{padding-top:56px}
-      .hero-art{min-height:360px}
-      .stat{font-size:.78rem;max-width:165px;padding:10px 12px}
-      .timeline-item{grid-template-columns:1fr;gap:4px}
-      .pub{grid-template-columns:1fr}
-      h1{font-size:3.45rem}
-    }
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
-  </style>
-</head>
-<body>
-  <nav class="nav" aria-label="Navegación principal">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#inicio"><span class="mark">JA</span><span>Johanna Alvarado</span></a>
-      <div class="nav-links">
-        <a href="#perfil">Perfil</a>
-        <a href="#investigacion">Investigación</a>
-        <a href="#docencia">Docencia</a>
-        <a href="#publicaciones">Publicaciones</a>
-        <a href="#contacto">Contacto</a>
-        <button class="theme" id="themeBtn" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero" id="inicio">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="kicker">Economía · sostenibilidad · educación</span>
-        <h1>Johanna Magaly <em>Alvarado Espejo</em></h1>
-        <p class="lede">Economista, docente universitaria e investigadora. Mi trabajo conecta la economía ambiental, el desarrollo económico, los métodos cuantitativos y la mejora de la educación superior para transformar evidencia en decisiones útiles.</p>
-        <div class="cta-row">
-          <a class="btn primary" href="#investigacion">Explorar mi trabajo →</a>
-          <a class="btn" href="mailto:johanna.alvarado@unl.edu.ec">Contacto académico</a>
-        </div>
-        <p class="small" style="margin-top:18px">Universidad Nacional de Loja · Loja, Ecuador</p>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="orb"><div class="contour"></div></div>
-        <div class="stat s1"><b>Economía ambiental</b>Valoración, recursos naturales y decisiones públicas.</div>
-        <div class="stat s2"><b>Docencia</b>Aprendizaje aplicado, evaluación y pensamiento crítico.</div>
-        <div class="stat s3"><b>Datos</b>Econometría, elección discreta y análisis estadístico.</div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section id="perfil">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Perfil</h2>
-          <p>Mi trayectoria combina investigación económica, docencia universitaria y gestión curricular. Me interesa trabajar en problemas donde el análisis riguroso pueda aportar a la sostenibilidad, la política pública, el bienestar y la calidad de la formación universitaria.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <div class="eyebrow">Formación</div>
-            <h3>Economía con perspectiva aplicada</h3>
-            <p>Economista, Maestra en Economía por la Universidad Nacional Autónoma de México y doctoranda en Economía de los Recursos Naturales y el Desarrollo Sustentable en la Universidad Nacional Agraria La Molina.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Universidad</div>
-            <h3>Docencia y gestión académica</h3>
-            <p>Docente de la Carrera de Economía de la Universidad Nacional de Loja y colaboradora en procesos institucionales de fortalecimiento curricular, evaluación y mejora académica.</p>
-          </article>
-          <article class="card">
-            <div class="eyebrow">Enfoque</div>
-            <h3>Evidencia para decidir mejor</h3>
-            <p>Integro economía, ambiente, estadística y diseño de políticas para estudiar decisiones de hogares, productores, estudiantes e instituciones.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="investigacion">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Intereses de investigación</h2>
-          <p>Una agenda interdisciplinaria organizada alrededor de seis preguntas recurrentes: cómo valoramos la naturaleza, cómo respondemos al cambio climático, cómo se distribuye el bienestar, cómo decidimos bajo restricciones y cómo mejorar instituciones educativas.</p>
-        </div>
-        <div class="research">
-          <article class="card"><div class="num">01</div><div><h3>Economía ambiental y valoración económica</h3><p>Preferencias por biodiversidad, servicios ecosistémicos, conservación, agua, incendios y atributos ambientales sin mercado.</p><div class="pill-row"><span class="pill">DCE</span><span class="pill">DAP</span><span class="pill">Política ambiental</span></div></div></article>
-          <article class="card"><div class="num">02</div><div><h3>Cambio climático y agricultura</h3><p>Adaptación, eficiencia técnica y económica, heterogeneidad productiva y resiliencia de los sistemas agrícolas.</p><div class="pill-row"><span class="pill">Eficiencia</span><span class="pill">Adaptación</span><span class="pill">Agricultura familiar</span></div></div></article>
-          <article class="card"><div class="num">03</div><div><h3>Desarrollo, pobreza y bienestar</h3><p>Pobreza multidimensional, bienestar subjetivo, desigualdades, migración y procesos territoriales.</p><div class="pill-row"><span class="pill">Desarrollo</span><span class="pill">Bienestar</span><span class="pill">Pobreza</span></div></div></article>
-          <article class="card"><div class="num">04</div><div><h3>Econometría y comportamiento</h3><p>Modelos de elección discreta, métodos cuantitativos, evaluación empírica y análisis de preferencias.</p><div class="pill-row"><span class="pill">Econometría</span><span class="pill">Logit</span><span class="pill">Datos</span></div></div></article>
-          <article class="card"><div class="num">05</div><div><h3>Educación superior y currículo</h3><p>Evaluación del aprendizaje, diseño curricular, repitencia estudiantil, calidad académica y mejora institucional.</p><div class="pill-row"><span class="pill">Currículo</span><span class="pill">Evaluación</span><span class="pill">Calidad</span></div></div></article>
-          <article class="card"><div class="num">06</div><div><h3>Conservación y territorio</h3><p>Áreas de conservación, turismo de naturaleza, prevención de incendios y decisiones públicas con perspectiva territorial.</p><div class="pill-row"><span class="pill">Biodiversidad</span><span class="pill">ACMUS</span><span class="pill">Territorio</span></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="agenda">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Agenda actual</h2>
-          <p>Proyectos en los que confluyen mis intereses de investigación, docencia y vinculación con problemas concretos del territorio.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="when">Doctorado · en curso</div><div><h3>Eficiencia y adaptación al cambio climático en la producción de maíz en Ecuador</h3><p>Investigación doctoral centrada en adopción de prácticas de adaptación, eficiencia técnica y económica y diferencias entre sistemas productivos.</p></div></article>
-          <article class="timeline-item"><div class="when">Investigación aplicada</div><div><h3>Valoración económica de conservación, biodiversidad y manejo del fuego</h3><p>Diseño de investigación con hogares para estudiar preferencias por atributos de conservación, recreación y estrategias de manejo integral del fuego en áreas de conservación municipal.</p></div></article>
-          <article class="timeline-item"><div class="when">Gestión universitaria</div><div><h3>Currículo, evaluación y mejora académica</h3><p>Trabajo institucional en lineamientos, evaluación curricular, resultados de aprendizaje y evidencia para decisiones de mejora en carreras de grado.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="docencia">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Docencia</h2>
-          <p>Concibo la docencia universitaria como un espacio para conectar teoría, datos y territorio. Priorizo problemas reales, discusión argumentada, aplicación de métodos y productos que permitan demostrar conocimientos y habilidades.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card"><div class="eyebrow">Asignaturas</div><h3>Economía Ambiental</h3><p>Externalidades, valoración económica, recursos naturales, política ambiental, cambio climático y sostenibilidad.</p></article>
-          <article class="card"><div class="eyebrow">Asignaturas</div><h3>Desarrollo Económico</h3><p>Teorías, desigualdades, indicadores, ODS, evidencia empírica y análisis de problemas de desarrollo.</p></article>
-          <article class="card"><div class="eyebrow">Práctica docente</div><h3>Aprender haciendo</h3><p>Talleres, roles, análisis de casos, recursos digitales, proyectos, salidas de campo, evaluación formativa y diálogo con actores externos.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="publicaciones">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Publicaciones seleccionadas</h2>
-          <p>Una selección que refleja mis líneas de trabajo en economía ambiental, sostenibilidad, bienestar y educación superior.</p>
-        </div>
-        <div class="filters" aria-label="Filtros de publicaciones">
-          <button class="filter active" data-filter="all">Todas</button>
-          <button class="filter" data-filter="ambiente">Ambiente</button>
-          <button class="filter" data-filter="bienestar">Bienestar</button>
-          <button class="filter" data-filter="educacion">Educación</button>
-        </div>
-        <div class="pubs">
-          <article class="pub" data-cat="ambiente"><div><h3>Water saving practices conditioned by socioeconomic factors: A case study of Ecuadorian households</h3><p>Journal of Environmental Management · 2021</p></div><a href="https://doi.org/10.1016/j.jenvman.2021.112818" target="_blank" rel="noopener">DOI ↗</a></article>
-          <article class="pub" data-cat="ambiente"><div><h3>Impact of the informal economy on the ecological footprint: The role of urban concentration and globalization</h3><p>Economic Analysis and Policy · 2022</p></div><a href="https://doi.org/10.1016/j.eap.2022.07.001" target="_blank" rel="noopener">DOI ↗</a></article>
-          <article class="pub" data-cat="bienestar"><div><h3>How much are you willing to accept for being away from home?</h3><p>Applied Research in Quality of Life · 2024</p></div><a href="https://doi.org/10.1007/s11482-024-10309-w" target="_blank" rel="noopener">DOI ↗</a></article>
-          <article class="pub" data-cat="ambiente"><div><h3>Environmental impact of the shadow economy, globalisation, trade and market size: Evidence using linear and non-linear methods</h3><p>Sustainability · 2021</p></div><a href="https://doi.org/10.3390/su13126539" target="_blank" rel="noopener">DOI ↗</a></article>
-          <article class="pub" data-cat="educacion"><div><h3>Caracterización de la repitencia estudiantil en la educación superior. Un estudio de caso</h3><p>Revista Científica Episteme & Praxis · 2026</p></div><a href="https://doi.org/10.62451/rep.v4i1.164" target="_blank" rel="noopener">DOI ↗</a></article>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <p class="quote">“La economía me interesa cuando ayuda a comprender <span>decisiones humanas, límites ambientales y posibilidades de transformación</span>.”</p>
-      </div>
-    </section>
-
-    <section id="contacto">
-      <div class="wrap contact">
-        <div class="contact-card">
-          <div><p class="eyebrow" style="color:#d9c39f">Contacto académico</p><h2>Conversemos.</h2></div>
-          <div><p>Para colaboración académica, investigación, docencia o proyectos interdisciplinarios:</p><a href="mailto:johanna.alvarado@unl.edu.ec">johanna.alvarado@unl.edu.ec →</a></div>
-        </div>
-        <aside class="notes">
-          <h3>Ámbitos de colaboración</h3>
-          <p>Economía ambiental y de recursos naturales; valoración económica; cambio climático; desarrollo económico; pobreza y bienestar; métodos cuantitativos; evaluación y currículo universitario.</p>
-          <h3 style="margin-top:26px">Afiliación</h3>
-          <p>Universidad Nacional de Loja<br>Carrera de Economía<br>Loja, Ecuador</p>
-          <p class="small" style="margin-top:28px">Este sitio presenta únicamente información profesional seleccionada para difusión pública.</p>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">© <span id="year"></span> Johanna Magaly Alvarado Espejo · Sitio académico personal</div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const btn = document.getElementById('themeBtn');
-    const saved = localStorage.getItem('ja-theme');
-    if(saved === 'dark') document.body.classList.add('dark');
-    btn.addEventListener('click',()=>{
-      document.body.classList.toggle('dark');
-      localStorage.setItem('ja-theme',document.body.classList.contains('dark')?'dark':'light');
-    });
-    document.querySelectorAll('.filter').forEach(button=>{
-      button.addEventListener('click',()=>{
-        document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
-        button.classList.add('active');
-        const f = button.dataset.filter;
-        document.querySelectorAll('.pub').forEach(pub=>{
-          pub.style.display = (f==='all' || pub.dataset.cat===f) ? 'grid' : 'none';
-        });
-      });
-    });
-  </script>
-</body>
-</html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sitio académico personal de Johanna Magaly Alvarado Espejo: economía ambiental, desarrollo, investigación, docencia universitaria y gestión curricular.">
+<title>Johanna Alvarado | Perfil académico</title>
+<style>
+:root{--bg:#f7f4ed;--p:#fffdf9;--i:#18231f;--m:#65706b;--g:#173c35;--g2:#2e675b;--gold:#b58a49;--l:rgba(23,60,53,.15);--s:#eef2ed;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--i);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65}a{color:inherit}h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.08;letter-spacing:-.03em;margin:0}.w{width:min(var(--max),calc(100% - 40px));margin:auto}.nav{position:sticky;top:0;z-index:10;background:rgba(247,244,237,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--l)}.ni{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:850}.mark{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--g);color:#fff;font-family:Georgia,serif}.links{display:flex;gap:16px;flex-wrap:wrap}.links a{text-decoration:none;color:var(--m);font-size:.9rem}.hero{padding:82px 0 58px}.hg{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.k{display:inline-block;padding:7px 11px;border:1px solid var(--l);border-radius:999px;background:var(--p);font-size:.78rem;font-weight:850;text-transform:uppercase;letter-spacing:.09em;color:var(--g2)}h1{font-size:clamp(3.1rem,7vw,6.5rem);margin-top:17px}h1 em{font-style:normal;color:var(--g2)}.role{font-size:1.3rem;font-weight:780;margin:19px 0 0}.lede{font-size:1.1rem;color:var(--m);max-width:780px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.badge{padding:7px 10px;border:1px solid var(--l);border-radius:999px;background:var(--s);font-size:.82rem}.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}.btn{padding:11px 16px;border-radius:999px;border:1px solid var(--l);background:var(--p);text-decoration:none;font-weight:800}.btn.pri{background:var(--g);color:#fff;border-color:var(--g)}.heroCard{background:linear-gradient(145deg,#183e37,#2e675b);color:#fff;border-radius:34px;padding:32px;min-height:390px;display:flex;flex-direction:column;justify-content:space-between}.heroCard h2{font-size:2.25rem}.heroCard p{color:rgba(255,255,255,.82)}.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}.chip{padding:14px;border:1px solid rgba(255,255,255,.16);border-radius:17px;background:rgba(255,255,255,.08)}section{padding:70px 0;border-top:1px solid var(--l)}.sh{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:end;margin-bottom:34px}.sh h2{font-size:clamp(2.3rem,5vw,4.2rem)}.sh p{margin:0;color:var(--m)}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.card{background:var(--p);border:1px solid var(--l);border-radius:24px;padding:24px}.ey{font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:var(--gold);margin-bottom:9px}.card h3{font-size:1.5rem;margin-bottom:10px}.card p{margin:0;color:var(--m)}.pubs,.list{display:grid;gap:11px}.pub,.item{background:var(--p);border:1px solid var(--l);border-radius:20px;padding:19px 21px}.pub{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.pub h3,.item h3{font-family:inherit;letter-spacing:0;font-size:1.02rem;line-height:1.4}.pub p,.item p{margin:5px 0 0;color:var(--m);font-size:.92rem}.pub a{text-decoration:none;font-weight:850;color:var(--g2);white-space:nowrap}.tl{display:grid;grid-template-columns:155px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--l)}.tl:last-child{border-bottom:0}.when{color:var(--gold);font-weight:850}.tl h3{font-size:1.26rem;margin-bottom:5px}.tl p{margin:0;color:var(--m)}.top{display:flex;justify-content:space-between;gap:18px;align-items:start}.tag{white-space:nowrap;padding:5px 8px;border:1px solid var(--l);border-radius:999px;background:var(--s);font-size:.76rem}.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.cm{background:var(--g);color:#fff;border-radius:30px;padding:32px;min-height:290px;display:flex;flex-direction:column;justify-content:space-between}.cm h2{font-size:4rem}.cm a{font-weight:850;text-decoration:none}.side{background:var(--p);border:1px solid var(--l);border-radius:28px;padding:28px}.side p{color:var(--m)}footer{padding:28px 0 42px;color:var(--m);font-size:.88rem}
+@media(max-width:900px){.hg,.sh,.contact{grid-template-columns:1fr}.g3,.g2{grid-template-columns:1fr}.links a{display:none}.tl{grid-template-columns:1fr;gap:4px}.pub{grid-template-columns:1fr}.heroCard{min-height:330px}}
+@media(max-width:600px){.w{width:min(var(--max),calc(100% - 24px))}.hero{padding-top:50px}h1{font-size:3.2rem}.chips{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="nav"><div class="w ni"><a class="brand" href="#inicio"><span class="mark">JA</span>Johanna Alvarado</a><div class="links"><a href="#perfil">Perfil</a><a href="#investigacion">Investigación</a><a href="#publicaciones">Publicaciones</a><a href="#proyectos">Proyectos</a><a href="#docencia">Docencia</a><a href="#gestion">Gestión</a><a href="#contacto">Contacto</a></div></div></nav>
+<header class="hero" id="inicio"><div class="w hg"><div><span class="k">Economía · ambiente · desarrollo · educación superior</span><h1>Johanna Magaly <em>Alvarado Espejo</em></h1><p class="role">Economista · Docente e investigadora · Universidad Nacional de Loja</p><p class="lede">Mi trabajo académico articula investigación económica aplicada, economía ambiental y de los recursos naturales, desarrollo, métodos cuantitativos, docencia universitaria y gestión curricular. El sitio presenta únicamente información profesional respaldada por el portafolio académico disponible.</p><div class="badges"><span class="badge">Maestra en Economía · UNAM</span><span class="badge">Doctorado en curso · UNALM</span><span class="badge">Registro nacional de investigadora · 2026</span></div><div class="cta"><a class="btn pri" href="#publicaciones">Ver publicaciones</a><a class="btn" href="mailto:johanna.alvarado@unl.edu.ec">Contacto académico</a></div></div><aside class="heroCard"><div><div class="ey" style="color:#d9c39f">Perfil académico</div><h2>Investigación, docencia y gestión con base en evidencia.</h2><p>Trayectoria universitaria vinculada con economía ambiental, bienestar, desarrollo, análisis cuantitativo, currículo y mejora académica.</p></div><div class="chips"><div class="chip">Economía ambiental y recursos</div><div class="chip">Desarrollo y bienestar</div><div class="chip">Métodos cuantitativos</div><div class="chip">Currículo universitario</div></div></aside></div></header>
+<main>
+<section id="perfil"><div class="w"><div class="sh"><h2>Perfil académico</h2><p>Formación económica, docencia universitaria, investigación y participación institucional en procesos curriculares.</p></div><div class="g3"><article class="card"><div class="ey">Formación</div><h3>Economía y recursos naturales</h3><p>Economista por la Universidad Técnica Particular de Loja y Maestra en Economía por la Universidad Nacional Autónoma de México. Cursa el Doctorado en Economía de los Recursos Naturales y el Desarrollo Sustentable en la Universidad Nacional Agraria La Molina.</p></article><article class="card"><div class="ey">Investigación</div><h3>Registro como investigadora</h3><p>Registrada en 2026 en el sistema nacional de información de ciencia, tecnología e innovación, con especialidades en Ciencias Sociales y del Comportamiento, Economía Agrícola y de Recursos y Economía Ambiental.</p></article><article class="card"><div class="ey">Universidad</div><h3>Docencia y fortalecimiento curricular</h3><p>Docente de la Carrera de Economía de la Universidad Nacional de Loja y encargada del Fortalecimiento Curricular del Nivel de Grado desde junio de 2020, según designación rectoral.</p></article></div></div></section>
+<section id="investigacion"><div class="w"><div class="sh"><h2>Áreas de investigación y trabajo académico</h2><p>Estas áreas derivan de publicaciones, proyectos, docencia, supervisión de trabajos y responsabilidades institucionales documentadas.</p></div><div class="g2"><article class="card"><div class="ey">01</div><h3>Economía ambiental y recursos naturales</h3><p>Ahorro de agua y energía, huella ecológica, degradación ambiental, servicios ecosistémicos, valoración económica y política ambiental.</p></article><article class="card"><div class="ey">02</div><h3>Desarrollo, bienestar y migración</h3><p>Bienestar subjetivo, redes sociales, pobreza multidimensional, migración y desarrollo territorial.</p></article><article class="card"><div class="ey">03</div><h3>Métodos cuantitativos y comportamiento</h3><p>Modelos logit, elección discreta, estadística aplicada y análisis empírico de decisiones económicas y ambientales.</p></article><article class="card"><div class="ey">04</div><h3>Educación superior y currículo</h3><p>Repitencia estudiantil, evaluación curricular, resultados de aprendizaje, aseguramiento de la calidad y mejora académica.</p></article></div></div></section>
+<section id="publicaciones"><div class="w"><div class="sh"><h2>Publicaciones seleccionadas</h2><p>Trabajos registrados en el CV investigador incluido en el portafolio. Se priorizan revista, año y DOI.</p></div><div class="pubs">
+<article class="pub"><div><h3>Water saving practices conditioned by socioeconomic factors: A case study of Ecuadorian households</h3><p>Journal of Environmental Management · 2021</p></div><a href="https://doi.org/10.1016/j.jenvman.2021.112818" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Environmental impact of the shadow economy, globalisation, trade and market size: Evidence using linear and non-linear methods</h3><p>Sustainability · 2021</p></div><a href="https://doi.org/10.3390/su13126539" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Impact of the informal economy on the ecological footprint: The role of urban concentration and globalization</h3><p>Economic Analysis and Policy · 2022</p></div><a href="https://doi.org/10.1016/j.eap.2022.07.001" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Incidencia del COVID-19, normas sociales y conciencia ambiental sobre el ahorro de energía eléctrica en los hogares de Loja</h3><p>Revista Economía y Política · 2023</p></div><a href="https://doi.org/10.25097/rep.n38.2023.05" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>How much are you willing to accept for being away from home?</h3><p>Applied Research in Quality of Life · 2024</p></div><a href="https://doi.org/10.1007/s11482-024-10309-w" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Analizando el vínculo entre el bienestar subjetivo y las redes sociales físicas en Ecuador: evidencia empírica usando datos transversales</h3><p>Ad-Gnosis · 2024</p></div><a href="https://doi.org/10.21803/adgnosis.13.13.714" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Análisis de COVID-19 y ahorro de agua potable: una perspectiva multifactorial</h3><p>Revista Económica · 2024</p></div><a href="https://doi.org/10.54753/rve.v12i1.1908" target="_blank">DOI ↗</a></article>
+<article class="pub"><div><h3>Caracterización de la repitencia estudiantil en la educación superior. Un estudio de caso</h3><p>Revista Científica Episteme & Praxis · 2026</p></div><a href="https://doi.org/10.62451/rep.v4i1.164" target="_blank">DOI ↗</a></article>
+</div></div></section>
+<section id="proyectos"><div class="w"><div class="sh"><h2>Proyectos de investigación</h2><p>Cuando el expediente documenta un cambio de rol, se indica de forma específica.</p></div>
+<div class="tl"><div class="when">2019–2020</div><div><h3>Pobreza multidimensional global en Latinoamérica y sus fronteras</h3><p>Participación como investigadora y, posteriormente, como directora encargada del proyecto en la Universidad Nacional de Loja.</p></div></div>
+<div class="tl"><div class="when">2020–2021</div><div><h3>Asociaciones de productores de café y desarrollo territorial: Zona 7 de Ecuador</h3><p>Proyecto orientado al rol económico y social de la cadena de valor de asociaciones cafetaleras.</p></div></div>
+<div class="tl"><div class="when">2021–2023</div><div><h3>COVID-19 y prácticas ambientales de los hogares de Loja</h3><p>Análisis de factores sociales, económicos y ambientales asociados con las prácticas ambientales de los hogares.</p></div></div>
+<div class="tl"><div class="when">2023–2025</div><div><h3>Factores socioeconómicos-ambientales y normas sociales en el bienestar subjetivo</h3><p>Investigación con énfasis en bienestar subjetivo y modelos valorativos de elección discreta.</p></div></div>
+<div class="tl"><div class="when">2024–2026</div><div><h3>Realidad y perspectivas de la repitencia estudiantil en la Universidad Nacional de Loja</h3><p>Proyecto para identificar factores asociados con la repitencia y aportar a estrategias preventivas.</p></div></div>
+<div class="tl"><div class="when">2007–2008</div><div><h3>Migración y economías locales</h3><p>Participación como becaria de investigación en proyectos sobre migración internacional y calidad de vida de familiares de migrantes en Loja.</p></div></div>
+</div></section>
+<section id="docencia"><div class="w"><div class="sh"><h2>Docencia y aprendizaje aplicado</h2><p>El portafolio muestra planificación, aula virtual, simulación, debate, evaluación, interacción con actores externos y práctica de campo.</p></div><div class="g3"><article class="card"><div class="ey">Economía Ambiental</div><h3>Teoría, valoración y política</h3><p>Asignatura orientada al análisis de problemáticas ambientales, valoración económica, recursos naturales, sostenibilidad y política ambiental.</p></article><article class="card"><div class="ey">Desarrollo Económico</div><h3>Análisis de problemas reales</h3><p>Productos por unidad, talleres, controles, participación, aprendizaje autónomo y evaluación sumativa.</p></article><article class="card"><div class="ey">Práctica de campo · 2026</div><h3>Gira académica a El Padmi</h3><p>Actividad de 16 horas con estudiantes de quinto ciclo para analizar servicios ecosistémicos, captura de carbono y alternativas productivas sostenibles.</p></article></div></div></section>
+<section id="supervision"><div class="w"><div class="sh"><h2>Supervisión de investigación</h2><p>El portafolio incluye evidencia directa de trabajos dirigidos en posgrado y grado.</p></div><div class="g2"><article class="card"><div class="ey">Posgrado · 2022</div><h3>Electromovilidad como alternativa de política pública en el transporte urbano de Loja</h3><p>Dirección de trabajo de titulación en la Maestría en Políticas Públicas de la Universidad Nacional de Loja.</p></article><article class="card"><div class="ey">Grado · 2025</div><h3>Valoración económica ambiental de espacios verdes mediante precios hedónicos</h3><p>Dirección de trabajo de integración curricular en la Carrera de Economía de la Universidad Nacional de Loja.</p></article></div></div></section>
+<section id="gestion"><div class="w"><div class="sh"><h2>Gestión académica y desarrollo curricular</h2><p>Se presenta como contribución institucional documentada, sin atribuir individualmente decisiones colectivas.</p></div><div class="g2"><article class="card"><div class="ey">Desde 2020</div><h3>Fortalecimiento curricular del nivel de grado</h3><p>Designación institucional para colaborar en Coordinación de Docencia como encargada del Fortalecimiento Curricular del Nivel de Grado.</p></article><article class="card"><div class="ey">2025</div><h3>Lineamientos para el proceso de ajuste curricular</h3><p>Participación en el equipo de elaboración de lineamientos institucionales para las carreras de la Universidad Nacional de Loja.</p></article><article class="card"><div class="ey">Mejora continua</div><h3>Resultados de aprendizaje y gestión curricular</h3><p>Participación en informes institucionales de seguimiento de resultados de aprendizaje, gestión curricular y mejora continua.</p></article><article class="card"><div class="ey">Formación académica</div><h3>Investigación y diseño curricular</h3><p>Participación como expositora en el curso-taller “La investigación como fundamento del diseño curricular en la Universidad Nacional de Loja”.</p></article></div></div></section>
+<section id="formacion"><div class="w"><div class="sh"><h2>Formación continua y participación profesional</h2><p>Selección de actividades documentadas en el expediente.</p></div><div class="list">
+<article class="item"><div class="top"><h3>Diplomado en Planeación y Diseño Curricular</h3><span class="tag">2022 · 220 h</span></div><p>Programa aprobado de ocho módulos.</p></article>
+<article class="item"><div class="top"><h3>Evaluación curricular como estrategia de mejora continua</h3><span class="tag">2024 · 120 h</span></div><p>Curso-taller aprobado en la Universidad Nacional de Loja.</p></article>
+<article class="item"><div class="top"><h3>Inteligencia de Negocios y Análisis de Datos con Power BI</h3><span class="tag">2024 · instructora</span></div><p>Participación en calidad de instructora.</p></article>
+<article class="item"><div class="top"><h3>Integración de la IA en los procesos de enseñanza-aprendizaje</h3><span class="tag">2025 · 40 h</span></div><p>Curso aprobado en la Universidad Nacional de Loja.</p></article>
+<article class="item"><div class="top"><h3>V Congreso Internacional de Desarrollo, Ambiente y Sociedad</h3><span class="tag">2025 · panelista</span></div><p>Participación registrada como ponente/panelista.</p></article>
+<article class="item"><div class="top"><h3>Tutora en el Concurso de Investigación Económica “José Corsino Cárdenas”</h3><span class="tag">BCE · 2026</span></div><p>Participación como tutora en la categoría “Mi proyecto de titulación”.</p></article>
+</div></div></section>
+<section id="contacto"><div class="w contact"><div class="cm"><div><div class="ey" style="color:#d9c39f">Contacto académico</div><h2>Conversemos.</h2></div><div><p>Para colaboración académica, investigación, docencia o proyectos interdisciplinarios:</p><a href="mailto:johanna.alvarado@unl.edu.ec">johanna.alvarado@unl.edu.ec →</a></div></div><aside class="side"><h3>Afiliación</h3><p>Universidad Nacional de Loja<br>Carrera de Economía<br>Loja, Ecuador</p><h3 style="margin-top:22px">Ámbitos de colaboración</h3><p>Economía ambiental y de recursos naturales; valoración económica; desarrollo y bienestar; métodos cuantitativos; educación superior; evaluación y currículo.</p></aside></div></section>
+</main><footer><div class="w">© <span id="y"></span> Johanna Magaly Alvarado Espejo · Sitio académico personal</div></footer><script>document.getElementById('y').textContent=new Date().getFullYear()</script></body></html>
